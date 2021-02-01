@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 import "./App.css";
+import CityList from "./CityList.json"
+import CityTimezones from "./CityTimezones.json"
 // import {ReactComponent as TimezoneMap} from "./TimezoneMap.svg";
 
 /**
@@ -28,6 +30,20 @@ class App extends Component {
     document.getElementById(e.target.id).style.fill = "rgba(154, 153, 154, 0.7)";
   }
 
+  handleSelection = (e) => {
+    console.log(e.target.value);
+    console.log(e.target.id);
+  }
+
+  onInput = (e) => {
+    console.log('inside function');
+    if (CityList.includes(e.target.value)) {
+      console.log("found one!");
+      console.log(CityTimezones[e.target.value]);
+    }
+
+  }
+
   setStyles = () => {
     let root = document.documentElement;
     root.style.setProperty("--map-color", this.props.mapColor || "#060");
@@ -39,17 +55,19 @@ class App extends Component {
 
   render() {
     this.setStyles();
+    const listCities = CityList.map((item, i) => 
+      <option key={i} value={item} /> 
+    );
 
     return (
       <div className="App">
         <div className="App-topbar">
+          {listCities}
           {this.state.timezone ? <p className="App-label"><b>Timezone</b>: {this.state.timezone} </p> : <p className="App-label">Select a timezone. </p> }
-          <select name="cars" id="cars" className="App-selector">
-            <option value="volvo">Volvo</option>
-            <option value="saab">Saab</option>
-            <option value="mercedes">Mercedes</option>
-            <option value="audi">Audi</option>
-          </select>
+          <input list="europe-countries" placeholder="Start typing..." onChange={this.onInput} />
+          <datalist id="europe-countries">
+            {listCities}
+          </datalist> 
         </div>
         <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="830px"
   height="590px" viewBox="0 0 830 590" enableBackground="new 0 0 830 590" xmlSpace="preserve" className="App-map">

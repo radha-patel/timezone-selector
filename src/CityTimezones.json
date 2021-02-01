@@ -1,0 +1,11 @@
+{
+    "Chicago, IL": "GMT-6:00",
+    "Dallas, TX": "GMT-6:00",
+    "Houston, TX": "GMT-6:00",
+    "Los Angeles, CA": "GMT-8:00",
+    "New York, NY": "GMT-5:00",
+    "Pheonix, AZ": "GMT-7:00",
+    "Philadelphia, PA": "GMT-5:00", 
+    "San Antonio, TX": "GMT-6:00", 
+    "San Diego, CA": "GMT-8:00"
+}

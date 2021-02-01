@@ -57,3 +57,11 @@
 .App-label {
   margin: 0;
 }
+
+/* option:hover {
+  background-color: #11E8EA;
+} */
+
+input {
+  width: 200px;
+}
