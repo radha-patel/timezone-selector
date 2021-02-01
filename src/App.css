@@ -1,0 +1,59 @@
+:root {
+  --map-color: #060;
+  --map-stroke: #fff;
+  --path-fill: rgba(204, 204, 255, .15);
+  --path-stroke: rgba(204, 204, 255, .5);
+  --map-height: 400px;
+}
+
+.App {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  margin: 20px;
+}
+
+.App-map {
+  height: var(--map-height);
+  width: auto;
+  margin: 5px;
+}
+
+#map > g > g path {
+  fill: var(--map-color);
+  stroke: var(--map-stroke);
+  stroke-width: .5;
+}
+
+#map > g > g path:hover {
+  fill: #f0f; /* Hidden below timezones; wont fire */
+}
+
+#timezones > path {
+  fill: var(--path-fill);
+  stroke: var(--path-stroke);
+  stroke-width: .5;
+}
+
+#timezones > path:hover {
+  fill: rgba(204, 204, 255, .75);
+}
+
+.App-selector {
+  width: 100px;
+  height: 20px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.App-topbar {
+  display: flex;
+  flex-direction: row;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.App-label {
+  margin: 0;
+}
