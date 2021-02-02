@@ -84,7 +84,7 @@ class App extends Component {
         <div className="App-topbar">
           {listCities}
           {this.state.timezone ? <p className="App-label"><b>Timezone</b>: {this.state.timezone} </p> : <p className="App-label">Select a timezone. </p> }
-          <input list="europe-countries" placeholder="Start typing..." onChange={this.onInput} />
+          <input list="europe-countries" placeholder="Nearest City" onChange={this.onInput} />
           <datalist id="europe-countries" className="App-datalist">
             {listCities}
           </datalist> 
