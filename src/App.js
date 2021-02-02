@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import "./App.css";
 import CityList from "./CityList.json"
 import CityTimezones from "./CityTimezones.json"
+import Dropdown from "./Dropdown.js"
 // import {ReactComponent as TimezoneMap} from "./TimezoneMap.svg";
 
 /**
@@ -19,6 +20,7 @@ class App extends Component {
     super(props);
     this.state = {
       timezone: null,
+      dropdownResults: "",
     };
   }
 
@@ -30,19 +32,34 @@ class App extends Component {
     document.getElementById(e.target.id).style.fill = "rgba(154, 153, 154, 0.7)";
   }
 
-  handleSelection = (e) => {
-    console.log(e.target.value);
-    console.log(e.target.id);
-  }
-
   onInput = (e) => {
-    console.log('inside function');
     if (CityList.includes(e.target.value)) {
-      console.log("found one!");
-      console.log(CityTimezones[e.target.value]);
-    }
+      if (this.state.timezone) {
+        document.getElementById(this.state.timezone).style.fill = "rgba(204, 204, 255, .15)";
+      }
 
+      let timezone = CityTimezones[e.target.value]
+      this.setState({ timezone: timezone })
+      document.getElementById(timezone).style.fill = "rgba(154, 153, 154, 0.7)";
+    }
   }
+
+  onChange = (e) => {
+    if (this.state.dropdownResults.length > 0) {
+      let currentRes = this.state.dropDownResults + e.target.value;
+      this.setState({ dropDownResults: currentRes }, () => {
+        console.log(this.state.dropDownResults);
+      });
+    } else {
+      this.setState({ dropDownResults: e.target.value }, () => {
+        console.log(this.state.dropDownResults);
+      });
+    }
+  }
+
+  // autocompleteResults = () => {
+
+  // }
 
   setStyles = () => {
     let root = document.documentElement;
@@ -61,11 +78,14 @@ class App extends Component {
 
     return (
       <div className="App">
+        <Dropdown 
+          enterInput={this.onChange}
+        />
         <div className="App-topbar">
           {listCities}
           {this.state.timezone ? <p className="App-label"><b>Timezone</b>: {this.state.timezone} </p> : <p className="App-label">Select a timezone. </p> }
           <input list="europe-countries" placeholder="Start typing..." onChange={this.onInput} />
-          <datalist id="europe-countries">
+          <datalist id="europe-countries" className="App-datalist">
             {listCities}
           </datalist> 
         </div>
