@@ -30,6 +30,7 @@ class App extends Component {
     }
     this.setState({ timezone: e.target.id })
     document.getElementById(e.target.id).style.fill = "rgba(154, 153, 154, 0.7)";
+    this.getClickPosition(e);
   }
 
   onInput = (e) => {
@@ -57,6 +58,16 @@ class App extends Component {
     }
   }
 
+  getClickPosition = (e) => {
+    let xPosition = e.clientX;
+    let yPosition = e.clientY;
+    console.log(xPosition, yPosition);
+
+    let elem = document.querySelector('svg');
+    let rect = elem.getBoundingClientRect();
+    console.log(rect);
+  }
+
   // autocompleteResults = () => {
 
   // }
@@ -67,7 +78,7 @@ class App extends Component {
     root.style.setProperty("--map-stroke", this.props.mapStroke || "#fff");
     root.style.setProperty("--path-color", this.props.mapStroke || "rgba(204, 204, 255, .15)");
     root.style.setProperty("--path-stroke", this.props.mapStroke || "rgba(204, 204, 255, .5)");
-    root.style.setProperty("--map-height", this.props.mapStroke || "400px");
+    root.style.setProperty("--map-height", this.props.mapStroke || "500px");
   }
 
   render() {
@@ -89,7 +100,8 @@ class App extends Component {
             {listCities}
           </datalist> 
         </div>
-        <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="830px"
+        <div className="App-mapdiv">
+        <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="830"
   height="590px" viewBox="0 0 830 590" enableBackground="new 0 0 830 590" xmlSpace="preserve" className="App-map">
           <g id="map">
             <g>
@@ -7656,6 +7668,7 @@ class App extends Component {
                       l-0.944,0.024l0.036-24.548l3.863,2.384l0.346-0.534h1.848L632.805,279.96z"/>
           </g>
         </svg>
+        </div>
       </div>
     );
   }

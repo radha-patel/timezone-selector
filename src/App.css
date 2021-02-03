@@ -19,6 +19,14 @@
   margin: 5px;
 }
 
+.App-mapdiv {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 0;
+  width: fit-content;
+}
+
 #map > g > g path {
   fill: var(--map-color);
   stroke: var(--map-stroke);
