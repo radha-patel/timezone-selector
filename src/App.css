@@ -3,7 +3,7 @@
   --map-stroke: #fff;
   --path-fill: rgba(204, 204, 255, .15);
   --path-stroke: rgba(204, 204, 255, .5);
-  --map-height: 400px;
+  --map-height: 500px;
 }
 
 .App {
@@ -16,7 +16,6 @@
 .App-map {
   height: var(--map-height);
   width: auto;
-  margin: 5px;
 }
 
 .App-mapdiv {
@@ -74,6 +73,14 @@ input {
 .App-datalist {
   height: 100px;
   overflow: hidden
+}
+
+.App-pin {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background-color: red;
+  position: relative;
 }
 
 

@@ -1,24 +1,112 @@
 {
-    "Austin, TX": "GMT-6:00",
-    "Charlotte, NC": "GMT-5:00",
-    "Chicago, IL": "GMT-6:00",
-    "Columbus, OH": "GMT-5:00",
-    "Dallas, TX": "GMT-6:00",
-    "Detroit, MI": "GMT-5:00",
-    "El Paso, TX": "GMT-7:00",
-    "Fort Worth, TX": "GMT-6:00",
-    "Honolulu, HI": "GMT-10:00",
-    "Houston, TX": "GMT-6:00",
-    "Indianapolis, IN": "GMT-6:00",
-    "Jacksonville, FL": "GMT-5:00",
-    "Los Angeles, CA": "GMT-8:00",
-    "Memphis, TN": "GMT-6:00",
-    "New York, NY": "GMT-5:00",
-    "Pheonix, AZ": "GMT-7:00",
-    "Philadelphia, PA": "GMT-5:00", 
-    "San Antonio, TX": "GMT-6:00", 
-    "San Diego, CA": "GMT-8:00",
-    "San Francisco, CA": "GMT-8:00",
-    "San Jose, CA": "GMT-8:00",
-    "Seattle, WA": "GMT-8:00"
+    "Austin, TX": {
+        "timezone": "GMT-6:00",
+        "latitude": "30.3",
+        "longitude": "-97.7"
+    },
+    "Charlotte, NC": {
+        "timezone": "GMT-5:00",
+        "latitude": "35.2",
+        "longitude": "-80.8"
+    },
+    "Chicago, IL": {
+        "timezone": "GMT-6:00",
+        "latitude": "41.9",
+        "longitude": "-87.6"
+    },
+    "Columbus, OH": {
+        "timezone": "GMT-5:00",
+        "latitude": "40.0",
+        "longitude": "-83.0"
+    },
+    "Dallas, TX": {
+        "timezone": "GMT-6:00",
+        "latitude": "32.8",
+        "longitude": "-96.8"
+    },
+    "Detroit, MI": {
+        "timezone": "GMT-5:00",
+        "latitude": "42.3",
+        "longitude": "-83.0"
+    },
+    "El Paso, TX": {
+        "timezone": "GMT-7:00",
+        "latitude": "31.8",
+        "longitude": "-106.5"
+    },
+    "Fort Worth, TX": {
+        "timezone": "GMT-6:00",
+        "latitude": "37.8",
+        "longitude": "-97.3"
+    },
+    "Honolulu, HI": {
+        "timezone": "GMT-10:00",
+        "latitude": "21.3",
+        "longitude": "-157.9"
+    },
+    "Houston, TX": {
+        "timezone": "GMT-6:00",
+        "latitude": "29.8",
+        "longitude": "-95.4"
+    },
+    "Indianapolis, IN": {
+        "timezone": "GMT-6:00",
+        "latitude": "39.8",
+        "longitude": "-86.2"
+    },
+    "Jacksonville, FL": {
+        "timezone": "GMT-5:00",
+        "latitude": "30.3",
+        "longitude": "-81.7"
+    },
+    "Los Angeles, CA": {
+        "timezone": "GMT-8:00",
+        "latitude": "34.0",
+        "longitude": "-118.2"
+    },
+    "Memphis, TN": {
+        "timezone": "GMT-6:00",
+        "latitude": "35.1",
+        "longitude": "-90.0"
+    },
+    "New York, NY": {
+        "timezone": "GMT-5:00",
+        "latitude": "40.7",
+        "longitude": "-75.0"
+    },
+    "Pheonix, AZ": {
+        "timezone": "GMT-7:00",
+        "latitude": "33.3",
+        "longitude": "-112.0"
+    },
+    "Philadelphia, PA": {
+        "timezone": "GMT-5:00",
+        "latitude": "40.0",
+        "longitude": "-75.2"
+    },
+    "San Antonio, TX": {
+        "timezone": "GMT-6:00",
+        "latitude": "29.4",
+        "longitude": "-98.2"
+    },
+    "San Diego, CA": {
+        "timezone": "GMT-8:00",
+        "latitude": "32.7",
+        "longitude": "-117.2"
+    },
+    "San Francisco, CA": {
+        "timezone": "GMT-8:00",
+        "latitude": "37.8",
+        "longitude": "-122.4"
+    },
+    "San Jose, CA": {
+        "timezone": "GMT-8:00",
+        "latitude": "37.3",
+        "longitude": "-121.9"
+    },
+    "Seattle, WA": {
+        "timezone": "GMT-8:00",
+        "latitude": "47.6",
+        "longitude": "-122.3"
+    }
 }

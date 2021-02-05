@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 import "./App.css";
 import CityList from "./CityList.json"
-import CityTimezones from "./CityTimezones.json"
-import Dropdown from "./Dropdown.js"
+import City from "./CityTimezones.json"
+// import Dropdown from "./Dropdown.js"
 // import {ReactComponent as TimezoneMap} from "./TimezoneMap.svg";
 
 /**
@@ -21,6 +21,8 @@ class App extends Component {
     this.state = {
       timezone: null,
       dropdownResults: "",
+      pinX: -3,
+      pinY: 3,
     };
   }
 
@@ -33,13 +35,23 @@ class App extends Component {
     this.getClickPosition(e);
   }
 
+  placePin = (lat, long) => {
+    console.log(lat, long)
+    let y = (90 - lat) / 90 * 250
+    let x = (180 + Number(long)) / 180 * 350
+    console.log(x, y)
+    this.setState({ pinX: x - 3, pinY: y + 3 })
+  }
+
   onInput = (e) => {
     if (CityList.includes(e.target.value)) {
       if (this.state.timezone) {
         document.getElementById(this.state.timezone).style.fill = "rgba(204, 204, 255, .15)";
       }
 
-      let timezone = CityTimezones[e.target.value]
+      let cityInfo = City[e.target.value]
+      this.placePin(cityInfo.latitude, cityInfo.longitude);
+      let timezone = cityInfo['timezone']
       this.setState({ timezone: timezone })
       document.getElementById(timezone).style.fill = "rgba(154, 153, 154, 0.7)";
     }
@@ -58,19 +70,30 @@ class App extends Component {
     }
   }
 
+  getCoordinates = (x, y) => {
+    let long = 0;
+    let lat = 0;
+    if (y < 250) {
+      lat = (300 - y) / 300 * 90
+    } else {
+      lat = (y - 250) / 250 * -90
+    }
+    if (x < 350) {
+      long = (350 - x) / 350 * -180 
+    } else {
+      long = (x - 350) / 350 * 180
+    }
+    return [lat, long]
+  }
+
   getClickPosition = (e) => {
     let xPosition = e.clientX;
     let yPosition = e.clientY;
-    console.log(xPosition, yPosition);
-
     let elem = document.querySelector('svg');
     let rect = elem.getBoundingClientRect();
-    console.log(rect);
+    console.log(xPosition - rect.x, yPosition - rect.y);
+    console.log(this.getCoordinates(xPosition - rect.x, yPosition - rect.y));
   }
-
-  // autocompleteResults = () => {
-
-  // }
 
   setStyles = () => {
     let root = document.documentElement;
@@ -89,9 +112,9 @@ class App extends Component {
 
     return (
       <div className="App">
-        <Dropdown 
+        {/* <Dropdown 
           enterInput={this.onChange}
-        />
+        /> */}
         <div className="App-topbar">
           {listCities}
           {this.state.timezone ? <p className="App-label"><b>Timezone</b>: {this.state.timezone} </p> : <p className="App-label">Select a timezone. </p> }
@@ -101,6 +124,7 @@ class App extends Component {
           </datalist> 
         </div>
         <div className="App-mapdiv">
+          <div className="App-pin" style={{ top: this.state.pinY, left: this.state.pinX }}></div>
         <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="830"
   height="590px" viewBox="0 0 830 590" enableBackground="new 0 0 830 590" xmlSpace="preserve" className="App-map">
           <g id="map">
