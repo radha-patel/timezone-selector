@@ -79,8 +79,18 @@ input {
   width: 5px;
   height: 5px;
   border-radius: 50%;
-  background-color: red;
+  background-color: blue;
   position: relative;
+  z-index: 3;
+}
+
+.App-pin-outside {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background-color: white;
+  position: relative;
+  z-index: 2;
 }
 
 

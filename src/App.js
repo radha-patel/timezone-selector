@@ -37,7 +37,10 @@ class App extends Component {
 
   placePin = (lat, long) => {
     console.log(lat, long)
-    let y = (90 - lat) / 90 * 250
+    let a = -0.0155967;
+    let b = -1.211647;
+    let c = 245.952;
+    let y = a*lat**2 + b*lat + c;
     let x = (180 + Number(long)) / 180 * 350
     console.log(x, y)
     this.setState({ pinX: x - 3, pinY: y + 3 })
@@ -74,7 +77,11 @@ class App extends Component {
     let long = 0;
     let lat = 0;
     if (y < 250) {
-      lat = (300 - y) / 300 * 90
+      let a = -9.2887 * 10**(-4);
+      let b = -0.1125;
+      let c = 86.844;
+      lat = a*y**2 + b*y + c;
+      console.log(lat)
     } else {
       lat = (y - 250) / 250 * -90
     }
@@ -124,6 +131,7 @@ class App extends Component {
           </datalist> 
         </div>
         <div className="App-mapdiv">
+          <div className="App-pin-outside" style={{ top: this.state.pinY + 6, left: this.state.pinX - 1 }}></div>
           <div className="App-pin" style={{ top: this.state.pinY, left: this.state.pinX }}></div>
         <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="830"
   height="590px" viewBox="0 0 830 590" enableBackground="new 0 0 830 590" xmlSpace="preserve" className="App-map">
