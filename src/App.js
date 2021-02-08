@@ -32,7 +32,9 @@ class App extends Component {
     }
     this.setState({ timezone: e.target.id })
     document.getElementById(e.target.id).style.fill = "rgba(154, 153, 154, 0.7)";
-    this.getClickPosition(e);
+    let loc = this.getClickPosition(e);
+    let closestCity = this.closestCity(loc[0], loc[1]);
+    this.placePin(closestCity[0], closestCity[1]);
   }
 
   placePin = (lat, long) => {
@@ -71,6 +73,7 @@ class App extends Component {
         console.log(this.state.dropDownResults);
       });
     }
+
   }
 
   getCoordinates = (x, y) => {
@@ -99,16 +102,34 @@ class App extends Component {
     let elem = document.querySelector('svg');
     let rect = elem.getBoundingClientRect();
     console.log(xPosition - rect.x, yPosition - rect.y);
-    console.log(this.getCoordinates(xPosition - rect.x, yPosition - rect.y));
+    return this.getCoordinates(xPosition - rect.x, yPosition - rect.y);
   }
 
   setStyles = () => {
     let root = document.documentElement;
-    root.style.setProperty("--map-color", this.props.mapColor || "#060");
+    root.style.setProperty("--map-color", this.props.mapColor || "#4dabf5");
     root.style.setProperty("--map-stroke", this.props.mapStroke || "#fff");
     root.style.setProperty("--path-color", this.props.mapStroke || "rgba(204, 204, 255, .15)");
     root.style.setProperty("--path-stroke", this.props.mapStroke || "rgba(204, 204, 255, .5)");
     root.style.setProperty("--map-height", this.props.mapStroke || "500px");
+  }
+
+  closestCity = (lat, long) => {
+    console.log(Object.values(City));
+    let closest = "Chicago, IL"
+    let dist = 1000;
+    console.log(closest)
+    for (var city in City) {
+      let x = Math.abs(lat - City[city]["latitude"]);
+      let y = Math.abs(long - City[city]["longitude"]);
+      console.log(x, y);
+      if (x+y < dist) {
+        closest = city
+        dist = x + y
+      }
+    }
+    console.log(closest)
+    return [City[closest]["latitude"], City[closest]["longitude"]]
   }
 
   render() {
