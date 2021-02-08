@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import "./App.css";
 import CityList from "./CityList.json"
 import City from "./CityTimezones.json"
+import FriendlyTimezones from "./FriendlyTimezones.json"
 // import Dropdown from "./Dropdown.js"
 // import {ReactComponent as TimezoneMap} from "./TimezoneMap.svg";
 
@@ -20,6 +21,7 @@ class App extends Component {
     super(props);
     this.state = {
       timezone: null,
+      friendlyTimezone: null,
       dropdownResults: "",
       pinX: -3,
       pinY: 3,
@@ -27,8 +29,20 @@ class App extends Component {
   }
 
   handleClick = (e) => {
+    let nameExists = false;
     if (this.state.timezone) {
       document.getElementById(this.state.timezone).style.fill = "rgba(204, 204, 255, .15)";
+    }
+    for (var timezone in FriendlyTimezones) {
+      if (timezone === e.target.id) {
+        console.log("friendly timezone exitss");
+        this.setState({ friendlyTimezone: FriendlyTimezones[e.target.id] })
+        nameExists = true;
+        break;
+      }
+    }
+    if (!nameExists) {
+      this.setState({ friendlyTimezone: null });
     }
     this.setState({ timezone: e.target.id })
     document.getElementById(e.target.id).style.fill = "rgba(154, 153, 154, 0.7)";
@@ -68,7 +82,8 @@ class App extends Component {
       this.setState({ dropDownResults: currentRes }, () => {
         console.log(this.state.dropDownResults);
       });
-    } else {
+    } 
+    else {
       this.setState({ dropDownResults: e.target.value }, () => {
         console.log(this.state.dropDownResults);
       });
@@ -115,7 +130,6 @@ class App extends Component {
   }
 
   closestCity = (lat, long) => {
-    console.log(Object.values(City));
     let closest = "Chicago, IL"
     let dist = 1000;
     console.log(closest)
@@ -145,7 +159,12 @@ class App extends Component {
         /> */}
         <div className="App-topbar">
           {listCities}
-          {this.state.timezone ? <p className="App-label"><b>Timezone</b>: {this.state.timezone} </p> : <p className="App-label">Select a timezone. </p> }
+          {this.state.timezone ? 
+            (this.state.friendlyTimezone ? 
+              <p className="App-label"><b>Timezone</b>: {this.state.friendlyTimezone} </p> : 
+              <p className="App-label"><b>Timezone</b>: {this.state.timezone} </p>) 
+            : <p className="App-label">Select a timezone. </p>
+          }
           <input list="europe-countries" placeholder="Nearest City" onChange={this.onInput} />
           <datalist id="europe-countries" className="App-datalist">
             {listCities}
