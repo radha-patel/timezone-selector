@@ -24,9 +24,14 @@
         "latitude": "32.8",
         "longitude": "-96.8"
     },
+    "Delhi, IN": {
+        "timezone": "GMT+5:30",
+        "latitude": "28.7",
+        "longitude": "77.2"
+    },
     "Detroit, MI": {
         "timezone": "GMT-5:00",
-        "latitude": "42.3",
+        "latitude": "28.7",
         "longitude": "-83.0"
     },
     "El Paso, TX": {
@@ -59,15 +64,30 @@
         "latitude": "30.3",
         "longitude": "-81.7"
     },
+    "Jakarta, ID": {
+        "timezone": "GMT+7:00",
+        "latitude": "-6.2",
+        "longitude": "106.8"
+    },
     "Los Angeles, CA": {
         "timezone": "GMT-8:00",
         "latitude": "34.0",
         "longitude": "-118.2"
     },
+    "Manila, ID": {
+        "timezone": "GMT+7:00",
+        "latitude": "14.6",
+        "longitude": "121.0"
+    },
     "Memphis, TN": {
         "timezone": "GMT-6:00",
         "latitude": "35.1",
         "longitude": "-90.0"
+    },
+    "Mumbai, IN": {
+        "timezone": "GMT+5:30",
+        "latitude": "19.0",
+        "longitude": "72.8"
     },
     "New York, NY": {
         "timezone": "GMT-5:00",
@@ -113,5 +133,15 @@
         "timezone": "GMT-8:00",
         "latitude": "47.6",
         "longitude": "-122.3"
+    },
+    "Shanghai, CH": {
+        "timezone": "GMT+8:00",
+        "latitude": "31.2",
+        "longitude": "121.5"
+    },
+    "Tokyo, JP": {
+        "timezone": "GMT+9:00",
+        "latitude": "35.7",
+        "longitude": "139.7"
     }
 }
