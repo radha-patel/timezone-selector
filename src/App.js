@@ -4,7 +4,6 @@ import CityList from "./CityList.json"
 import City from "./CityTimezones.json"
 import FriendlyTimezones from "./FriendlyTimezones.json"
 import Dropdown from "./Dropdown.js"
-// import {ReactComponent as TimezoneMap} from "./TimezoneMap.svg";
 
 /**
  * Note: default props defined at bottom 
@@ -61,20 +60,6 @@ class App extends Component {
     this.setState({ pinX: x - 3, pinY: y + 3 })
   }
 
-  onInput = (e) => {
-    if (CityList.includes(e.target.value)) {
-      if (this.state.timezone) {
-        document.getElementById(this.state.timezone).style.fill = "rgba(204, 204, 255, .15)";
-      }
-
-      let cityInfo = City[e.target.value]
-      this.placePin(cityInfo.latitude, cityInfo.longitude);
-      let timezone = cityInfo['timezone']
-      this.setState({ timezone: timezone })
-      document.getElementById(timezone).style.fill = "rgba(154, 153, 154, 0.7)";
-    }
-  }
-
   onChange = (e) => {
     console.log(e.target.value);
     if (e.target.value.length > 0) {
@@ -84,18 +69,6 @@ class App extends Component {
     } else {
       this.setState({ dropDownResults: [] });
     }
-    // if (this.state.dropdownResults.length > 0) {
-    //   let currentRes = this.state.dropDownResults + e.target.value;
-    //   this.setState({ dropDownResults: currentRes }, () => {
-    //     console.log(this.state.dropDownResults);
-    //   });
-    // } 
-    // else {
-    //   this.setState({ dropDownResults: e.target.value }, () => {
-    //     console.log(this.state.dropDownResults);
-    //   });
-    // }
-
   }
 
   getCoordinates = (x, y) => {
@@ -149,29 +122,36 @@ class App extends Component {
     return [City[closest]["latitude"], City[closest]["longitude"]]
   }
 
+  onCitySelection = (e) => {
+    if (this.state.timezone) {
+      document.getElementById(this.state.timezone).style.fill = "rgba(204, 204, 255, .15)";
+    }
+
+    let cityInfo = City[e.target.id]
+    this.placePin(cityInfo.latitude, cityInfo.longitude);
+    let timezone = cityInfo['timezone']
+    this.setState({ timezone: timezone })
+    document.getElementById(timezone).style.fill = "rgba(154, 153, 154, 0.7)";
+  }
+
   render() {
     this.setStyles();
-    const listCities = CityList.map((item, i) => 
-      <option key={i} value={item} /> 
-    );
 
     return (
       <div className="App">
-        <Dropdown 
-          enterInput={this.onChange} results={this.state.dropDownResults}
-        />
         <div className="App-topbar">
-          {listCities}
+          <Dropdown 
+            enterInput={this.onChange} 
+            results={this.state.dropDownResults}
+            onSelection={this.onCitySelection}
+          />
+          <div style={{ width: "10px" }}></div>
           {this.state.timezone ? 
             (this.state.friendlyTimezone ? 
               <p className="App-label"><b>Timezone</b>: {this.state.friendlyTimezone} </p> : 
               <p className="App-label"><b>Timezone</b>: {this.state.timezone} </p>) 
             : <p className="App-label">Select a timezone. </p>
           }
-          <input list="europe-countries" placeholder="Nearest City" onChange={this.onInput} />
-          <datalist id="europe-countries" className="App-datalist">
-            {listCities}
-          </datalist> 
         </div>
         <div className="App-mapdiv">
           <div className="App-pin-outside" style={{ top: this.state.pinY + 6, left: this.state.pinX - 1 }}></div>

@@ -4,3 +4,23 @@
     display: flex;
     flex-direction: row;
 }
+
+.Dropdown-choices {
+    position: absolute;
+    background-color: white;
+    width: 200px;
+    cursor: pointer;
+}
+
+.Dropdown-result {
+    font-size: 14px;
+    /* border: 0.2px solid; */
+}
+
+.Dropdown-result:hover {
+    background-color: #bbb;
+}
+
+.Dropdown-submit {
+    width: 60px;
+}
