@@ -24,6 +24,7 @@ class App extends Component {
       dropdownResults: [],
       pinX: -3,
       pinY: 3,
+      pinLocation: ""
     };
   }
 
@@ -119,6 +120,7 @@ class App extends Component {
         dist = x + y
       }
     }
+    this.setState({ pinLocation: closest })
     return [City[closest]["latitude"], City[closest]["longitude"]]
   }
 
@@ -144,6 +146,7 @@ class App extends Component {
             enterInput={this.onChange} 
             results={this.state.dropDownResults}
             onSelection={this.onCitySelection}
+            pinLoc={this.state.pinLocation}
           />
           <div style={{ width: "10px" }}></div>
           {this.state.timezone ? 

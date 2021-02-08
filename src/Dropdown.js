@@ -26,7 +26,14 @@ class Dropdown extends Component {
       this.setState({ input: e.target.id })
   }
 
+  initializeLoc = () => {
+      if (this.props.pinLoc && this.props.pinLoc !== this.state.input) {
+          this.setState({ input: this.props.pinLoc })
+      }
+  }
+
   render () {
+      this.initializeLoc()
       const choices = this.props.results ? this.props.results.map((item, i) => <p key={i} className="Dropdown-result" id={item} onClick={this.chooseCity}>{item}</p>) : <></>
     return (
         <>
