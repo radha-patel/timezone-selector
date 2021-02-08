@@ -65,7 +65,7 @@ class App extends Component {
   onChange = (e) => {
     console.log(e.target.value);
     if (e.target.value.length > 0) {
-      let results = CityList.filter(city => city.startsWith(e.target.value));
+      let results = CityList.filter(city => city.toLowerCase().startsWith(e.target.value.toLowerCase()));
       this.setState({ dropDownResults: results });
       console.log(results);
     } else {
