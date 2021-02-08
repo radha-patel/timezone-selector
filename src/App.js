@@ -24,7 +24,8 @@ class App extends Component {
       dropdownResults: [],
       pinX: -3,
       pinY: 3,
-      pinLocation: ""
+      pinLocation: "",
+      cityChosen: false,
     };
   }
 
@@ -120,7 +121,7 @@ class App extends Component {
         dist = x + y
       }
     }
-    this.setState({ pinLocation: closest })
+    this.setState({ pinLocation: closest, cityChosen: true })
     return [City[closest]["latitude"], City[closest]["longitude"]]
   }
 
@@ -136,6 +137,10 @@ class App extends Component {
     document.getElementById(timezone).style.fill = "rgba(154, 153, 154, 0.7)";
   }
 
+  changeStatus = () => {
+    this.setState({ cityChosen: false });
+  }
+
   render() {
     this.setStyles();
 
@@ -147,6 +152,8 @@ class App extends Component {
             results={this.state.dropDownResults}
             onSelection={this.onCitySelection}
             pinLoc={this.state.pinLocation}
+            status={this.state.cityChosen}
+            changeState={this.changeStatus}
           />
           <div style={{ width: "10px" }}></div>
           {this.state.timezone ? 

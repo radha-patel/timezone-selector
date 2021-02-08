@@ -32,8 +32,15 @@ class Dropdown extends Component {
       }
   }
 
+  reset = () => {
+      this.setState({ input: "" });
+  }
+
   render () {
-      this.initializeLoc()
+      if (this.props.status) {
+          this.initializeLoc();
+          this.props.changeState();
+      }
       const choices = this.props.results ? this.props.results.map((item, i) => <p key={i} className="Dropdown-result" id={item} onClick={this.chooseCity}>{item}</p>) : <></>
     return (
         <>
@@ -42,7 +49,8 @@ class Dropdown extends Component {
                     <input placeholder="Nearest City" onChange={this.onChange} value={this.state.input} />
                     <div id="Dropdown" className="Dropdown-choices">{choices}</div>
                 </div>
-                <input type="submit" className="Dropdown-submit" onClick={this.closeDropdown} />
+                <input type="submit" value="Close" className="Dropdown-submit" onClick={this.closeDropdown} />
+                <input type="reset" className="Dropdown-reset" onClick={this.reset} />
             </form>
         </>
     )
