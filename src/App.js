@@ -3,7 +3,7 @@ import "./App.css";
 import CityList from "./CityList.json"
 import City from "./CityTimezones.json"
 import FriendlyTimezones from "./FriendlyTimezones.json"
-// import Dropdown from "./Dropdown.js"
+import Dropdown from "./Dropdown.js"
 // import {ReactComponent as TimezoneMap} from "./TimezoneMap.svg";
 
 /**
@@ -22,7 +22,7 @@ class App extends Component {
     this.state = {
       timezone: null,
       friendlyTimezone: null,
-      dropdownResults: "",
+      dropdownResults: [],
       pinX: -3,
       pinY: 3,
     };
@@ -35,7 +35,6 @@ class App extends Component {
     }
     for (var timezone in FriendlyTimezones) {
       if (timezone === e.target.id) {
-        console.log("friendly timezone exitss");
         this.setState({ friendlyTimezone: FriendlyTimezones[e.target.id] })
         nameExists = true;
         break;
@@ -77,17 +76,25 @@ class App extends Component {
   }
 
   onChange = (e) => {
-    if (this.state.dropdownResults.length > 0) {
-      let currentRes = this.state.dropDownResults + e.target.value;
-      this.setState({ dropDownResults: currentRes }, () => {
-        console.log(this.state.dropDownResults);
-      });
-    } 
-    else {
-      this.setState({ dropDownResults: e.target.value }, () => {
-        console.log(this.state.dropDownResults);
-      });
+    console.log(e.target.value);
+    if (e.target.value.length > 0) {
+      let results = CityList.filter(city => city.startsWith(e.target.value));
+      this.setState({ dropDownResults: results });
+      console.log(results);
+    } else {
+      this.setState({ dropDownResults: [] });
     }
+    // if (this.state.dropdownResults.length > 0) {
+    //   let currentRes = this.state.dropDownResults + e.target.value;
+    //   this.setState({ dropDownResults: currentRes }, () => {
+    //     console.log(this.state.dropDownResults);
+    //   });
+    // } 
+    // else {
+    //   this.setState({ dropDownResults: e.target.value }, () => {
+    //     console.log(this.state.dropDownResults);
+    //   });
+    // }
 
   }
 
@@ -99,7 +106,6 @@ class App extends Component {
       let b = -0.1125;
       let c = 86.844;
       lat = a*y**2 + b*y + c;
-      console.log(lat)
     } else {
       lat = (y - 250) / 250 * -90
     }
@@ -132,17 +138,14 @@ class App extends Component {
   closestCity = (lat, long) => {
     let closest = "Chicago, IL"
     let dist = 1000;
-    console.log(closest)
     for (var city in City) {
       let x = Math.abs(lat - City[city]["latitude"]);
       let y = Math.abs(long - City[city]["longitude"]);
-      console.log(x, y);
       if (x+y < dist) {
         closest = city
         dist = x + y
       }
     }
-    console.log(closest)
     return [City[closest]["latitude"], City[closest]["longitude"]]
   }
 
@@ -154,9 +157,9 @@ class App extends Component {
 
     return (
       <div className="App">
-        {/* <Dropdown 
-          enterInput={this.onChange}
-        /> */}
+        <Dropdown 
+          enterInput={this.onChange} results={this.state.dropDownResults}
+        />
         <div className="App-topbar">
           {listCities}
           {this.state.timezone ? 
