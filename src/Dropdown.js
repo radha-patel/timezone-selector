@@ -24,6 +24,7 @@ class Dropdown extends Component {
   chooseCity = (e) => {
       this.props.onSelection(e)
       this.setState({ input: e.target.id })
+      this.closeDropdown(e);
   }
 
   initializeLoc = () => {
@@ -49,7 +50,6 @@ class Dropdown extends Component {
                     <input placeholder="Nearest City" onChange={this.onChange} value={this.state.input} />
                     <div id="Dropdown" className="Dropdown-choices">{choices}</div>
                 </div>
-                <input type="submit" value="Close" className="Dropdown-submit" onClick={this.closeDropdown} />
                 <input type="reset" className="Dropdown-reset" onClick={this.reset} />
             </form>
         </>

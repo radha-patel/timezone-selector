@@ -57,7 +57,11 @@ class App extends Component {
     let b = -1.211647;
     let c = 245.952;
     let y = a*lat**2 + b*lat + c;
-    let x = (180 + Number(long)) / 180 * 350
+    
+    let d = 1.944;
+    let e = 352.540;
+    // let x = (180 + Number(long)) / 180 * 350
+    let x = d*long + e;
     console.log(x, y)
     this.setState({ pinX: x - 3, pinY: y + 3 })
   }
@@ -84,11 +88,9 @@ class App extends Component {
     } else {
       lat = (y - 250) / 250 * -90
     }
-    if (x < 350) {
-      long = (350 - x) / 350 * -180 
-    } else {
-      long = (x - 350) / 350 * 180
-    }
+    let d = 0.5144;
+    let e = -181.333;
+    long = d*x + e;
     return [lat, long]
   }
 
@@ -97,7 +99,7 @@ class App extends Component {
     let yPosition = e.clientY;
     let elem = document.querySelector('svg');
     let rect = elem.getBoundingClientRect();
-    console.log(xPosition - rect.x, yPosition - rect.y);
+    console.log("Click location", xPosition - rect.x, yPosition - rect.y);
     return this.getCoordinates(xPosition - rect.x, yPosition - rect.y);
   }
 
@@ -126,13 +128,26 @@ class App extends Component {
   }
 
   onCitySelection = (e) => {
+    let nameExists = false;
     if (this.state.timezone) {
       document.getElementById(this.state.timezone).style.fill = "rgba(204, 204, 255, .15)";
     }
 
     let cityInfo = City[e.target.id]
-    this.placePin(cityInfo.latitude, cityInfo.longitude);
     let timezone = cityInfo['timezone']
+
+    this.placePin(cityInfo.latitude, cityInfo.longitude);
+    for (var time in FriendlyTimezones) {
+      if (time === timezone) {
+        this.setState({ friendlyTimezone: FriendlyTimezones[timezone] })
+        nameExists = true;
+        break;
+      }
+    }
+    if (!nameExists) {
+      this.setState({ friendlyTimezone: null });
+    }
+
     this.setState({ timezone: timezone })
     document.getElementById(timezone).style.fill = "rgba(154, 153, 154, 0.7)";
   }
