@@ -48,7 +48,7 @@ class App extends Component {
     this.setState({ timezone: e.target.id })
     document.getElementById(e.target.id).style.fill = "rgba(154, 153, 154, 0.7)";
     let loc = this.getClickPosition(e);
-    let closestCity = this.closestCity(loc[0], loc[1]);
+    let closestCity = this.closestCity(loc[0], loc[1], e.target.id);
     this.placePin(closestCity[0], closestCity[1]);
   }
 
@@ -113,10 +113,13 @@ class App extends Component {
     root.style.setProperty("--map-height", this.props.mapStroke || "500px");
   }
 
-  closestCity = (lat, long) => {
+  closestCity = (lat, long, timezone) => {
     let closest = "Chicago, IL"
     let dist = 1000;
     for (var city in City) {
+      if (City[city]["timezone"] !== timezone) {
+        continue;
+      }
       let x = Math.abs(lat - City[city]["latitude"]);
       let y = Math.abs(long - City[city]["longitude"]);
       if (x+y < dist) {
