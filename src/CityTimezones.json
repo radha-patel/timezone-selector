@@ -17,6 +17,12 @@
         "longitude": "31.2",
         "country": "EGY"
     },
+    "Calgary, Canada": {
+        "timezone": "GMT-7:00",
+        "latitude": "51.0",
+        "longitude": "-114.1",
+        "country": "CAN"
+    },
     "Charlotte, NC": {
         "timezone": "GMT-5:00",
         "latitude": "35.2",
@@ -53,6 +59,12 @@
         "longitude": "-83.0",
         "country": "USA"
     },
+    "Edmonton, Canada": {
+        "timezone": "GMT-7:00",
+        "latitude": "53.5",
+        "longitude": "-113.5",
+        "country": "CAN"
+    },
     "El Paso, TX": {
         "timezone": "GMT-7:00",
         "latitude": "31.8",
@@ -70,6 +82,12 @@
         "latitude": "23.1",
         "longitude": "113.3",
         "country": "CHN"
+    },
+    "Halifax, Canada": {
+        "timezone": "GMT-4:00",
+        "latitude": "45.6",
+        "longitude": "-63.6",
+        "country": "CAN"
     },
     "Honolulu, HI": {
         "timezone": "GMT-10:00",
@@ -107,11 +125,11 @@
         "longitude": "-118.2",
         "country": "USA"
     },
-    "Manila, IDN": {
+    "Manila, Indonesia": {
         "timezone": "GMT+7:00",
         "latitude": "14.6",
         "longitude": "121.0",
-        "country": "Indonesia"
+        "country": "IDN"
     },
     "Memphis, TN": {
         "timezone": "GMT-6:00",
@@ -125,6 +143,12 @@
         "longitude": "-99.1",
         "country": "MEX"
     },
+    "Montreal, Canada": {
+        "timezone": "GMT-5:00",
+        "latitude": "45.5",
+        "longitude": "-73.6",
+        "country": "CAN"
+    },
     "Mumbai, India": {
         "timezone": "GMT+5:30",
         "latitude": "19.0",
@@ -136,6 +160,12 @@
         "latitude": "40.7",
         "longitude": "-75.0",
         "country": "USA"
+    },
+    "Ottawa, Canada": {
+        "timezone": "GMT-5:00",
+        "latitude": "45.4",
+        "longitude": "-75.7",
+        "country": "CAN"
     },
     "Panama City, Panama": {
         "timezone": "GMT-5:00",
@@ -212,7 +242,19 @@
     "Toronto, Canada": {
         "timezone": "GMT-5:00",
         "latitude": "43.7",
-        "longitude": "46.6",
+        "longitude": "-79.4",
+        "country": "CAN"
+    },
+    "Vancouver, Canada": {
+        "timezone": "GMT-8:00",
+        "latitude": "49.4",
+        "longitude": "-123.0",
+        "country": "CAN"
+    },
+    "Whitehorse, Canada": {
+        "timezone": "GMT-8:00",
+        "latitude": "60.7",
+        "longitude": "-135.1",
         "country": "CAN"
     }
 }

@@ -3,5 +3,6 @@
   "GMT-7:00": "GMT", 
   "GMT-6:00": "CST", 
   "GMT-5:00": "EST", 
+  "GMT-4:00": "AST",
   "GMT+5:30": "IST"
 }
