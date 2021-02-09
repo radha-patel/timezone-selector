@@ -129,6 +129,7 @@ class App extends Component {
   }
 
   onCitySelection = (e) => {
+    document.getElementById("pin").style.visibility = "visible";
     let nameExists = false;
     if (this.state.timezone) {
       document.getElementById(this.state.timezone).style.fill = "rgba(204, 204, 255, .15)";
@@ -157,6 +158,18 @@ class App extends Component {
     this.setState({ cityChosen: false });
   }
 
+  reset = () => {
+    document.getElementById("pin").style.visibility = "hidden";
+    if (this.state.timezone) {
+      document.getElementById(this.state.timezone).style.fill = "rgba(204, 204, 255, .15)";
+      this.setState({ timezone: null });
+    }
+    if (this.state.friendlyTimezone) {
+      this.setState({ friendlyTimezone: null });
+    }
+    this.setState({ pinX: -3, pinY: 3, pinLocation: "", cityChosen: false })
+  }
+
   render() {
     this.setStyles();
 
@@ -170,6 +183,7 @@ class App extends Component {
             pinLoc={this.state.pinLocation}
             status={this.state.cityChosen}
             changeState={this.changeStatus}
+            reset={this.reset}
           />
           <div style={{ width: "10px" }}></div>
           {this.state.timezone ? 

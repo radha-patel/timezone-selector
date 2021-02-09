@@ -35,6 +35,7 @@ class Dropdown extends Component {
 
   reset = () => {
       this.setState({ input: "" });
+      this.props.reset();
   }
 
   render () {
