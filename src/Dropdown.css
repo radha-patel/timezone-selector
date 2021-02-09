@@ -10,6 +10,7 @@
     background-color: white;
     width: 200px;
     cursor: pointer;
+    z-index: 2;
 }
 
 .Dropdown-result {

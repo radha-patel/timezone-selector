@@ -82,6 +82,7 @@ input {
   background-color: blue;
   position: relative;
   z-index: 3;
+  visibility: hidden;
 }
 
 .App-pin-outside {

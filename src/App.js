@@ -30,6 +30,7 @@ class App extends Component {
   }
 
   handleClick = (e) => {
+    document.getElementById("pin").style.visibility = "visible";
     let nameExists = false;
     if (this.state.timezone) {
       document.getElementById(this.state.timezone).style.fill = "rgba(204, 204, 255, .15)";
@@ -180,7 +181,7 @@ class App extends Component {
         </div>
         <div className="App-mapdiv">
           <div className="App-pin-outside" style={{ top: this.state.pinY + 6, left: this.state.pinX - 1 }}></div>
-          <div className="App-pin" style={{ top: this.state.pinY, left: this.state.pinX }}></div>
+          <div className="App-pin" id="pin" style={{ top: this.state.pinY, left: this.state.pinX }}></div>
         <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="830"
   height="590px" viewBox="0 0 830 590" enableBackground="new 0 0 830 590" xmlSpace="preserve" className="App-map">
           <g id="map">
