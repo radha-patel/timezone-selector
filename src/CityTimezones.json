@@ -2,176 +2,217 @@
     "Austin, TX": {
         "timezone": "GMT-6:00",
         "latitude": "30.3",
-        "longitude": "-97.7"
+        "longitude": "-97.7",
+        "country": "USA"
     },
-    "Beijing, CHN": {
+    "Beijing, China": {
         "timezone": "GMT+8:00",
         "latitude": "39.9",
-        "longitude": "116.4"
+        "longitude": "116.4",
+        "country": "CHN"
     },
-    "Cairo, EGY": {
+    "Cairo, Egypt": {
         "timezone": "GMT+8:00",
         "latitude": "30.1",
-        "longitude": "31.2"
+        "longitude": "31.2",
+        "country": "EGY"
     },
     "Charlotte, NC": {
         "timezone": "GMT-5:00",
         "latitude": "35.2",
-        "longitude": "-80.8"
+        "longitude": "-80.8",
+        "country": "USA"
     },
     "Chicago, IL": {
         "timezone": "GMT-6:00",
         "latitude": "41.9",
-        "longitude": "-87.6"
+        "longitude": "-87.6",
+        "country": "USA"
     },
     "Columbus, OH": {
         "timezone": "GMT-5:00",
         "latitude": "40.0",
-        "longitude": "-83.0"
+        "longitude": "-83.0",
+        "country": "USA"
     },
     "Dallas, TX": {
         "timezone": "GMT-6:00",
         "latitude": "32.8",
-        "longitude": "-96.8"
+        "longitude": "-96.8",
+        "country": "USA"
     },
-    "Delhi, IND": {
+    "Delhi, India": {
         "timezone": "GMT+5:30",
         "latitude": "28.7",
-        "longitude": "77.2"
+        "longitude": "77.2",
+        "country": "IND"
     },
     "Detroit, MI": {
         "timezone": "GMT-5:00",
         "latitude": "28.7",
-        "longitude": "-83.0"
+        "longitude": "-83.0",
+        "country": "USA"
     },
     "El Paso, TX": {
         "timezone": "GMT-7:00",
         "latitude": "31.8",
-        "longitude": "-106.5"
+        "longitude": "-106.5",
+        "country": "USA"
     },
     "Fort Worth, TX": {
         "timezone": "GMT-6:00",
         "latitude": "37.8",
-        "longitude": "-97.3"
+        "longitude": "-97.3",
+        "country": "USA"
     },
-    "Guangzhou, CHN": {
+    "Guangzhou, China": {
         "timezone": "GMT+8:00",
         "latitude": "23.1",
-        "longitude": "113.3"
+        "longitude": "113.3",
+        "country": "CHN"
     },
     "Honolulu, HI": {
         "timezone": "GMT-10:00",
         "latitude": "21.3",
-        "longitude": "-157.9"
+        "longitude": "-157.9",
+        "country": "USA"
     },
     "Houston, TX": {
         "timezone": "GMT-6:00",
         "latitude": "29.8",
-        "longitude": "-95.4"
+        "longitude": "-95.4",
+        "country": "USA"
     },
     "Indianapolis, IN": {
         "timezone": "GMT-6:00",
         "latitude": "39.8",
-        "longitude": "-86.2"
+        "longitude": "-86.2",
+        "country": "USA"
     },
     "Jacksonville, FL": {
         "timezone": "GMT-5:00",
         "latitude": "30.3",
-        "longitude": "-81.7"
+        "longitude": "-81.7",
+        "country": "USA"
     },
-    "Jakarta, IDN": {
+    "Jakarta, Indonesia": {
         "timezone": "GMT+7:00",
         "latitude": "-6.2",
-        "longitude": "106.8"
+        "longitude": "106.8",
+        "country": "IDN"
     },
     "Los Angeles, CA": {
         "timezone": "GMT-8:00",
         "latitude": "34.0",
-        "longitude": "-118.2"
+        "longitude": "-118.2",
+        "country": "USA"
     },
     "Manila, IDN": {
         "timezone": "GMT+7:00",
         "latitude": "14.6",
-        "longitude": "121.0"
+        "longitude": "121.0",
+        "country": "Indonesia"
     },
     "Memphis, TN": {
         "timezone": "GMT-6:00",
         "latitude": "35.1",
-        "longitude": "-90.0"
+        "longitude": "-90.0",
+        "country": "USA"
     },
-    "Mexico City, MEX": {
+    "Mexico City, Mexico": {
         "timezone": "GMT-6:00",
         "latitude": "19.4",
-        "longitude": "-99.1"
+        "longitude": "-99.1",
+        "country": "MEX"
     },
-    "Mumbai, IND": {
+    "Mumbai, India": {
         "timezone": "GMT+5:30",
         "latitude": "19.0",
-        "longitude": "72.8"
+        "longitude": "72.8",
+        "country": "IND"
     },
     "New York, NY": {
         "timezone": "GMT-5:00",
         "latitude": "40.7",
-        "longitude": "-75.0"
+        "longitude": "-75.0",
+        "country": "USA"
     },
-    "Panama City": {
+    "Panama City, Panama": {
         "timezone": "GMT-5:00",
         "latitude": "9.0",
-        "longitude": "-79.5"
+        "longitude": "-79.5",
+        "country": "PAN"
     },
     "Pheonix, AZ": {
         "timezone": "GMT-7:00",
         "latitude": "33.3",
-        "longitude": "-112.0"
+        "longitude": "-112.0",
+        "country": "USA"
     },
     "Philadelphia, PA": {
         "timezone": "GMT-5:00",
         "latitude": "40.0",
-        "longitude": "-75.2"
+        "longitude": "-75.2",
+        "country": "USA"
     },
     "San Antonio, TX": {
         "timezone": "GMT-6:00",
         "latitude": "29.4",
-        "longitude": "-98.2"
+        "longitude": "-98.2",
+        "country": "USA"
     },
     "San Diego, CA": {
         "timezone": "GMT-8:00",
         "latitude": "32.7",
-        "longitude": "-117.2"
+        "longitude": "-117.2",
+        "country": "USA"
     },
     "San Francisco, CA": {
         "timezone": "GMT-8:00",
         "latitude": "37.8",
-        "longitude": "-122.4"
+        "longitude": "-122.4",
+        "country": "USA"
     },
     "San Jose, CA": {
         "timezone": "GMT-8:00",
         "latitude": "37.3",
-        "longitude": "-121.9"
+        "longitude": "-121.9",
+        "country": "USA"
     },
-    "Sao Paulo, BRA": {
+    "Sao Paulo, Brazil": {
         "timezone": "GMT-3:00",
         "latitude": "-23.6",
-        "longitude": "-46.6"
+        "longitude": "-46.6",
+        "country": "BRA"
     },
     "Seattle, WA": {
         "timezone": "GMT-8:00",
         "latitude": "47.6",
-        "longitude": "-122.3"
+        "longitude": "-122.3",
+        "country": "USA"
     },
-    "Seoul, KOR": {
+    "Seoul, South Korea": {
         "timezone": "GMT+9:00",
         "latitude": "37.6",
-        "longitude": "127"
+        "longitude": "127",
+        "country": "KOR"
     },
-    "Shanghai, CHN": {
+    "Shanghai, China": {
         "timezone": "GMT+8:00",
         "latitude": "31.2",
-        "longitude": "121.5"
+        "longitude": "121.5",
+        "country": "CHN"
     },
-    "Tokyo, JPN": {
+    "Tokyo, Japan": {
         "timezone": "GMT+9:00",
         "latitude": "35.7",
-        "longitude": "139.7"
+        "longitude": "139.7",
+        "country": "JPN"
+    },
+    "Toronto, Canada": {
+        "timezone": "GMT-5:00",
+        "latitude": "43.7",
+        "longitude": "46.6",
+        "country": "CAN"
     }
 }
