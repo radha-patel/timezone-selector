@@ -2,48 +2,56 @@ import React, { Component } from "react";
 import "./Dropdown.css";
 
 class Dropdown extends Component {
-  constructor(props) {
+    constructor(props) {
     super(props);
     this.state = {
-      input: "",
+        input: "",
     };
-  }
+    }
 
-  closeDropdown = (e) => {
-      e.preventDefault();
-      console.log('here')
-      document.getElementById("Dropdown").style.display = "none";
-  }
+    closeDropdown = (e) => {
+        e.preventDefault();
+        console.log('here');
+        document.getElementById("Dropdown").style.display = "none";
+    }
 
-  onChange = (e) => {
-      this.setState({ input: e.target.value })
-      document.getElementById("Dropdown").style.display = "block";
-      this.props.enterInput(e);
-  }
+    onChange = (e) => {
+        this.setState({ 
+            input: e.target.value 
+        });
+        document.getElementById("Dropdown").style.display = "block";
+        this.props.enterInput(e);
+    }
 
-  chooseCity = (e) => {
-      this.props.onSelection(e)
-      this.setState({ input: e.target.id })
-      this.closeDropdown(e);
-  }
+    chooseCity = (e) => {
+        this.props.onSelection(e);
+        this.setState({ 
+            input: e.target.id 
+        });
+        this.closeDropdown(e);
+    }
 
-  initializeLoc = () => {
-      if (this.props.pinLoc && this.props.pinLoc !== this.state.input) {
-          this.setState({ input: this.props.pinLoc })
-      }
-  }
+    initializeLoc = () => {
+        if (this.props.pinLoc && this.props.pinLoc !== this.state.input) {
+            this.setState({ 
+                input: this.props.pinLoc 
+            });
+        }
+    }
 
-  reset = () => {
-      this.setState({ input: "" });
-      this.props.reset();
-  }
+    reset = () => {
+        this.setState({ 
+            input: "" 
+        });
+        this.props.reset();
+    }
 
-  render () {
-      if (this.props.status) {
-          this.initializeLoc();
-          this.props.changeState();
-      }
-      const choices = this.props.results ? this.props.results.map((item, i) => <p key={i} className="Dropdown-result" id={item} onClick={this.chooseCity}>{item}</p>) : <></>
+    render () {
+        if (this.props.status) {
+            this.initializeLoc();
+            this.props.changeState();
+        }
+        const choices = this.props.results ? this.props.results.map((item, i) => <p key={i} className="Dropdown-result" id={item} onClick={this.chooseCity}>{item}</p>) : <></>
     return (
         <>
             <form className="Dropdown-div">
@@ -55,7 +63,7 @@ class Dropdown extends Component {
             </form>
         </>
     )
-  };
-};
+    };
+    };
 
 export default Dropdown
