@@ -37,15 +37,21 @@ class App extends Component {
     }
     for (var timezone in FriendlyTimezones) {
       if (timezone === e.target.id) {
-        this.setState({ friendlyTimezone: FriendlyTimezones[e.target.id] })
+        this.setState({ 
+          friendlyTimezone: FriendlyTimezones[e.target.id] 
+        });
         nameExists = true;
         break;
       }
     }
     if (!nameExists) {
-      this.setState({ friendlyTimezone: null });
+      this.setState({ 
+        friendlyTimezone: null 
+      });
     }
-    this.setState({ timezone: e.target.id })
+    this.setState({ 
+      timezone: e.target.id 
+    });
     document.getElementById(e.target.id).style.fill = "rgba(154, 153, 154, 0.7)";
     let loc = this.getClickPosition(e);
     let closestCity = this.closestCity(loc[0], loc[1], e.target.id);
@@ -53,7 +59,7 @@ class App extends Component {
   }
 
   placePin = (lat, long) => {
-    console.log(lat, long)
+    console.log(lat, long);
     let a = -0.0155967;
     let b = -1.211647;
     let c = 245.952;
@@ -63,18 +69,25 @@ class App extends Component {
     let e = 352.540;
     // let x = (180 + Number(long)) / 180 * 350
     let x = d*long + e;
-    console.log(x, y)
-    this.setState({ pinX: x - 3, pinY: y + 3 })
+    console.log(x, y);
+    this.setState({ 
+      pinX: x - 3, 
+      pinY: y + 3 
+    });
   }
 
   onChange = (e) => {
     console.log(e.target.value);
     if (e.target.value.length > 0) {
       let results = CityList.filter(city => city.toLowerCase().startsWith(e.target.value.toLowerCase()));
-      this.setState({ dropDownResults: results });
+      this.setState({ 
+        dropDownResults: results 
+      });
       console.log(results);
     } else {
-      this.setState({ dropDownResults: [] });
+      this.setState({ 
+        dropDownResults: [] 
+      });
     }
   }
 
@@ -114,21 +127,24 @@ class App extends Component {
   }
 
   closestCity = (lat, long, timezone) => {
-    let closest = "Chicago, IL"
+    let closest = "Chicago, IL";
     let dist = 1000;
     for (var city in City) {
       if (City[city]["timezone"] !== timezone) {
         continue;
-      }
+      };
       let x = Math.abs(lat - City[city]["latitude"]);
       let y = Math.abs(long - City[city]["longitude"]);
       if (x+y < dist) {
-        closest = city
-        dist = x + y
-      }
-    }
-    this.setState({ pinLocation: closest, cityChosen: true })
-    return [City[closest]["latitude"], City[closest]["longitude"]]
+        closest = city;
+        dist = x + y;
+      };
+    };
+    this.setState({ 
+      pinLocation: closest, 
+      cityChosen: true 
+    });
+    return [City[closest]["latitude"], City[closest]["longitude"]];
   }
 
   onCitySelection = (e) => {
@@ -138,39 +154,56 @@ class App extends Component {
       document.getElementById(this.state.timezone).style.fill = "rgba(204, 204, 255, .15)";
     }
 
-    let cityInfo = City[e.target.id]
-    let timezone = cityInfo['timezone']
+    let cityInfo = City[e.target.id];
+    let timezone = cityInfo['timezone'];
 
     this.placePin(cityInfo.latitude, cityInfo.longitude);
     for (var time in FriendlyTimezones) {
       if (time === timezone) {
-        this.setState({ friendlyTimezone: FriendlyTimezones[timezone] })
+        this.setState({ 
+          friendlyTimezone: FriendlyTimezones[timezone] 
+        });
         nameExists = true;
         break;
-      }
-    }
+      };
+    };
     if (!nameExists) {
-      this.setState({ friendlyTimezone: null });
-    }
+      this.setState({ 
+        friendlyTimezone: null 
+      });
+    };
 
-    this.setState({ timezone: timezone })
+    this.setState({ 
+      timezone: timezone 
+    });
     document.getElementById(timezone).style.fill = "rgba(154, 153, 154, 0.7)";
   }
 
   changeStatus = () => {
-    this.setState({ cityChosen: false });
+    this.setState({ 
+      cityChosen: false 
+    });
   }
 
   reset = () => {
     document.getElementById("pin").style.visibility = "hidden";
     if (this.state.timezone) {
       document.getElementById(this.state.timezone).style.fill = "rgba(204, 204, 255, .15)";
-      this.setState({ timezone: null });
+      this.setState({ 
+        timezone: null 
+      });
     }
     if (this.state.friendlyTimezone) {
-      this.setState({ friendlyTimezone: null });
+      this.setState({ 
+        friendlyTimezone: null 
+      });
     }
-    this.setState({ pinX: -3, pinY: 3, pinLocation: "", cityChosen: false })
+    this.setState({ 
+      pinX: -3, 
+      pinY: 3, 
+      pinLocation: "", 
+      cityChosen: false 
+    });
   }
 
   render() {
