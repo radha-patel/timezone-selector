@@ -5,6 +5,8 @@ import City from "./CityTimezones.json"
 import FriendlyTimezones from "./FriendlyTimezones.json"
 import Dropdown from "./Dropdown.js"
 
+const verbose = false;
+
 /**
  * Note: default props defined at bottom 
  * 
@@ -59,7 +61,7 @@ class App extends Component {
   }
 
   placePin = (lat, long) => {
-    console.log(lat, long);
+    if (verbose) console.log(lat, long);
     let a = -0.0155967;
     let b = -1.211647;
     let c = 245.952;
@@ -69,7 +71,7 @@ class App extends Component {
     let e = 352.540;
     // let x = (180 + Number(long)) / 180 * 350
     let x = d*long + e;
-    console.log(x, y);
+    if (verbose) console.log(x, y);
     this.setState({ 
       pinX: x - 3, 
       pinY: y + 3 
@@ -77,13 +79,13 @@ class App extends Component {
   }
 
   onChange = (e) => {
-    console.log(e.target.value);
+    if (verbose) console.log(e.target.value);
     if (e.target.value.length > 0) {
       let results = CityList.filter(city => city.toLowerCase().startsWith(e.target.value.toLowerCase()));
       this.setState({ 
         dropDownResults: results 
       });
-      console.log(results);
+      if (verbose) console.log(results);
     } else {
       this.setState({ 
         dropDownResults: [] 
@@ -113,7 +115,7 @@ class App extends Component {
     let yPosition = e.clientY;
     let elem = document.querySelector('svg');
     let rect = elem.getBoundingClientRect();
-    console.log("Click location", xPosition - rect.x, yPosition - rect.y);
+    if (verbose) console.log("Click location", xPosition - rect.x, yPosition - rect.y);
     return this.getCoordinates(xPosition - rect.x, yPosition - rect.y);
   }
 
