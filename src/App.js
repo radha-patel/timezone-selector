@@ -7,6 +7,20 @@ import Dropdown from "./Dropdown.js"
 
 const verbose = false;
 
+const LAT_TO_PIXY_A = -0.0155967;
+const LAT_TO_PIXY_B = -1.211647; 
+const LAT_TO_PIXY_C = 245.952;
+
+const LONG_TO_PIXX_A = 1.944;
+const LONG_TO_PIXX_B = 352.540;
+
+const PIXY_TO_LAT_A = -9.2887 * 10**(-4);
+const PIXY_TO_LAT_B = -0.1125;
+const PIXY_TO_LAT_C = 86.844;
+
+const PIXX_TO_LONG_A = 0.5144;
+const PIXX_TO_LONG_B = -181.333;
+
 /**
  * Note: default props defined at bottom 
  * 
@@ -62,16 +76,11 @@ class App extends Component {
 
   placePin = (lat, long) => {
     if (verbose) console.log(lat, long);
-    let a = -0.0155967;
-    let b = -1.211647;
-    let c = 245.952;
-    let y = a*lat**2 + b*lat + c;
-    
-    let d = 1.944;
-    let e = 352.540;
-    // let x = (180 + Number(long)) / 180 * 350
-    let x = d*long + e;
+
+    let y = LAT_TO_PIXY_A * lat**2 + LAT_TO_PIXY_B * lat + LAT_TO_PIXY_C;
+    let x = LONG_TO_PIXX_A * long + LONG_TO_PIXX_B;
     if (verbose) console.log(x, y);
+
     this.setState({ 
       pinX: x - 3, 
       pinY: y + 3 
@@ -97,16 +106,12 @@ class App extends Component {
     let long = 0;
     let lat = 0;
     if (y < 250) {
-      let a = -9.2887 * 10**(-4);
-      let b = -0.1125;
-      let c = 86.844;
-      lat = a*y**2 + b*y + c;
+      lat = PIXY_TO_LAT_A * y**2 + PIXY_TO_LAT_B * y + PIXY_TO_LAT_C;
     } else {
       lat = (y - 250) / 250 * -90
     }
-    let d = 0.5144;
-    let e = -181.333;
-    long = d*x + e;
+    
+    long = PIXX_TO_LONG_A * x + PIXX_TO_LONG_B;
     return [lat, long]
   }
 
