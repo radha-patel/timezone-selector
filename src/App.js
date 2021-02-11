@@ -1,9 +1,9 @@
 import React, { Component } from "react";
 import "./App.css";
-import CityList from "./CityList.json"
-import City from "./CityTimezones.json"
-import FriendlyTimezones from "./FriendlyTimezones.json"
-import Dropdown from "./Dropdown.js"
+import CityList from "./information/CityList.json"
+import City from "./information/CityTimezones.json"
+import FriendlyTimezones from "./information/FriendlyTimezones.json"
+import Dropdown from "./components/Dropdown.js"
 
 const verbose = false;
 

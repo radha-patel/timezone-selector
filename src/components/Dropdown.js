@@ -11,7 +11,6 @@ class Dropdown extends Component {
 
     closeDropdown = (e) => {
         e.preventDefault();
-        console.log('here');
         document.getElementById("Dropdown").style.display = "none";
     }
 
