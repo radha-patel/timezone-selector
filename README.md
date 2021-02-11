@@ -8,8 +8,9 @@ Timezone selection is signficiantly faster and more accurate with geographical c
 ## Build Status
 
 ## Screenshots 
-![Selection Demo]<img src="public/images/selection-demo.png" width="300" />
-![Dropdown Demo]<img src="public/images/dropdown-demo.png" width="300" /> 
+<img src="public/images/selection-demo.png" width="500" />
+<img src="public/images/dropdown-demo.png" width="500" /> 
+
 ## Features
 
 ## Installation
