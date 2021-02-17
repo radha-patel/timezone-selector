@@ -50,9 +50,9 @@ class Dropdown extends Component {
             this.initializeLoc();
             this.props.changeState();
         }
-        const choices = this.props.results ? this.props.results.map((item, i) => <p key={i} className="Dropdown-result" id={item} onClick={this.chooseCity}>{item}</p>) : <></>
+        const choices = this.props.results ? this.props.results.map((item, i) => <p key={i} className="Dropdown-result" id={item} onClick={this.chooseCity}>{item}</p>) : <div></div>
     return (
-        <>
+        <div>
             <form className="Dropdown-div">
                 <div>
                     <input placeholder="Nearest City" onChange={this.onChange} value={this.state.input} />
@@ -60,7 +60,7 @@ class Dropdown extends Component {
                 </div>
                 <input type="reset" className="Dropdown-reset" onClick={this.reset} />
             </form>
-        </>
+        </div>
     )
     };
     };
