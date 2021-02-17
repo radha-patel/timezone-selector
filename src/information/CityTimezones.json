@@ -5,6 +5,12 @@
         "longitude": "-97.7",
         "country": "USA"
     },
+    "Barcelona, Spain": {
+        "timezone": "GMT+1:00",
+        "latitude": "41.4",
+        "longitude": "2.2",
+        "country": "ESP"
+    },
     "Beijing, China": {
         "timezone": "GMT+8:00",
         "latitude": "39.9",
@@ -119,11 +125,23 @@
         "longitude": "106.8",
         "country": "IDN"
     },
+    "London, United Kingdom": {
+        "timezone": "GMT",
+        "latitude": "51.5",
+        "longitude": "-0.1",
+        "country": "USA"
+    },
     "Los Angeles, CA": {
         "timezone": "GMT-8:00",
         "latitude": "34.0",
         "longitude": "-118.2",
         "country": "USA"
+    },
+    "Madrid, Spain": {
+        "timezone": "GMT+1:00",
+        "latitude": "40.4",
+        "longitude": "-3.7",
+        "country": "ESP"
     },
     "Manila, Indonesia": {
         "timezone": "GMT+7:00",
@@ -142,6 +160,12 @@
         "latitude": "19.4",
         "longitude": "-99.1",
         "country": "MEX"
+    },
+    "Moscow, Russia": {
+        "timezone": "GMT+3:00",
+        "latitude": "55.8",
+        "longitude": "37.6",
+        "country": "RUS"
     },
     "Montreal, Canada": {
         "timezone": "GMT-5:00",
@@ -173,6 +197,12 @@
         "longitude": "-79.5",
         "country": "PAN"
     },
+    "Paris, France": {
+        "timezone": "GMT+1:00",
+        "latitude": "48.9",
+        "longitude": "2.35",
+        "country": "FRA"
+    },
     "Pheonix, AZ": {
         "timezone": "GMT-7:00",
         "latitude": "33.3",
@@ -184,6 +214,18 @@
         "latitude": "40.0",
         "longitude": "-75.2",
         "country": "USA"
+    },
+    "Rome, Italy": {
+        "timezone": "GMT+1:00",
+        "latitude": "41.9",
+        "longitude": "12.5",
+        "country": "ITA"
+    },
+    "Saint Petersburg, Russia": {
+        "timezone": "GMT+3:00",
+        "latitude": "60.0",
+        "longitude": "30.3",
+        "country": "RUS"
     },
     "San Antonio, TX": {
         "timezone": "GMT-6:00",
